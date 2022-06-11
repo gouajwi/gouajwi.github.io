@@ -1,6 +1,35 @@
 body {
   margin: 0;
-  background: #7878ff;
+  background: #1a1a1a;
   text-align: center;
-  text-decoration: cornsilk;
 }
+.topnav {
+  overflow: hidden;
+  background-color: #7878ff;
+}
+.topnav a {
+  float: right;
+  display: block;
+  color: #1a1a1a;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+.topnav a:hover {
+  background-color: #1a1a1a;
+  color: #7878ff;
+}
+.alert {
+  overflow: hidden;
+  background-color: #ff0000;
+}
+.alert a {
+  display: block;
+  color: #ffffff;
+  text-align: center;
+  padding: 14px 100%
+}
+.alert a:hover {
+  background-color: #1a1a1a;
+  color: #ff0000;
+
