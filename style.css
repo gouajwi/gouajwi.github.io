@@ -27,7 +27,7 @@ body {
   display: block;
   color: #ffffff;
   text-align: center;
-  padding: 14px 100%;
+  padding: 14px 20px;
 }
 .alert a:hover {
   background-color: #1a1a1a;
