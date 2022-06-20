@@ -1,6 +1,6 @@
 ### What's up 👋
 
-I'm a designer trying tp make a wensite to host his portfolio
+I'm a designer trying tp make a website to host his portfolio
 I have no prior experience about building websites: html,css,javascript... ### i know nothing ###
 This is my small project for this summer so we will see how far i can get
 

@@ -1,40 +1,242 @@
 @font-face {
-  font-family: "Trebuchet MS";
-  src: local("Trebuchet MS"), url("trebuc.woff") format("woff");
+  font-family: "Gilroybold";
+  src: url("/font/Gilroy-ExtraBold.otf");
+}
+@font-face {
+  font-family: "Gilroylight";
+  src: url("/font/Gilroy-Light.otf");
 }
 body {
-  font-family: "Trebuchet MS", sans-serif;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  max-width: 100%;
+  font-family: "Gilroybold";
   margin: 0;
-  background: #1a1a1a;
-  text-align: center;
+  background: #0c0c0c;
+  text-align: justify;
 }
-.topnav {
-  overflow: hidden;
-  background-color: #7878ff;
+section {
+  position: absolute;
+  top: 5%;
+  left: 5%;
+  width: 90%;
+  display: flex;
+  justify-content: baseline;
+  align-items: center;
 }
-.topnav a {
-  float: right;
+header {
+  position: absolute;
+  top: 0%;
+  left: 0%;
+}
+content {
+  max-width: 100%;
+  position: relative;
+  left: 10%;
+  width: 80%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+image {
+  top: 0;
+}
+section1 {
+  position: relative;
   display: block;
-  color: #1a1a1a;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
+  margin-left: auto;
+  margin-right: auto;
+}
+box {
+  border-radius: 10px;
+  position: absolute;
+  background-color: #7a7af0;
+  width: 92.5%;
+  padding: 50px;
+  margin-left: 3.5%;
+  margin-right: 3%;
+}
+.titles {
+  position: relative;
+  font-family: "Gilroybold";
+  font-size: 30px;
+  color: #0c0c0c;
+}
+.titles a {
+  position: relative;
+  display: flex;
+  justify-content: baseline;
+  align-items: center;
+  background-color: #7a7af0;
+  color: #0c0c0c;
 }
 .topnav a:hover {
-  background-color: #1a1a1a;
-  color: #7878ff;
+  background-color: #7a7af0;
+  color: #7a7af0;
 }
-.alert {
-  overflow: hidden;
-  background-color: #ff0000;
+.child {
+  position: absolute;
+  top: 0;
 }
-.alert a {
-  display: block;
-  color: #ffffff;
+.t1 {
+  line-height: 1;
+  font-size: 35px;
+  color: #7a7af0;
+}
+
+.t2 {
+  letter-spacing: 2%;
+  word-spacing: 2%;
+  font-family: "Gilroylight";
+  font-size: 30px;
+  color: #7a7af0;
+}
+.titles1 {
+  position: relative;
+  font-family: "Gilroybold";
+  font-size: 30px;
+  color: #7a7af0;
+}
+.t3 {
+  font-family: "Gilroylight";
+  font-size: 35px;
+  color: #7a7af0;
+}
+.tpro {
+  left: 10%;
+  font-family: "Gilroylight";
+  font-size: 30px;
+  color: #0c0c0c;
+}
+box1 {
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  border: 2px solid #7a7af0;
+  position: absolute;
+  background-color: #0c0c0c;
+  width: 100%;
+  padding: 50px;
+  left: 0%;
+  bottom: 0%;
+}
+box2 {
+  position: absolute;
+  background-color: #0c0c0c;
+  width: 35%;
+  left: 30%;
+  bottom: 0%;
+  justify-content: space-between;
+}
+div.gallery {
+  position: relative;
+  border-radius: 10px;
+  border: 1px solid #0c0c0c;
+}
+
+div.gallery:hover {
+  border: 1px solid #0c0c0c;
+}
+div.gallery :hover img {
+  filter: brightness(25%);
+}
+div.gallery img {
+  transition: 0.5s ease;
+  border-radius: 10px;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hid;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.responsive {
+  padding: 5px 6px;
+  float: left;
+  width: 33%;
+}
+
+@media only screen and (max-width: 700px) {
+  .responsive {
+    width: 49.99999%;
+    margin: 6px 0;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .responsive {
+    width: 100%;
+  }
+}
+
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.middle {
+  transition: 0.5s ease;
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  border-radius: 10px;
+}
+.text {
+  border-radius: 10px;
+  font-family: "Gilroybold";
+  background-color: #7a7af0;
+  color: #0c0c0c;
+  font-size: 18px;
+  padding: 16px 32px;
   text-align: center;
-  padding: 14px 16px;
 }
-.alert a:hover {
-  background-color: #1a1a1a;
-  color: #ff0000;
+.gallery :hover .middle {
+  opacity: 1;
+}
+.flex-container {
+  display: flex;
+  flex-direction: column;
+}
+@media only screen and (max-width: 715px) {
+  content {
+    max-width: 100%;
+    position: relative;
+    left: 0;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    display: flex;
+  }
+  div.image img {
+    filter: blur(3px);
+  }
+  image {
+    position: absolute;
+  }
+  .t2 {
+    position: absolute;
+  }
+  .titles {
+    margin: auto;
+  }
+  section {
+    top: 5px;
+    max-width: 100%;
+    position: absolute;
+    left: 0;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    display: flex;
+  }
 }
