@@ -8,7 +8,7 @@
 }
 body {
   width: 100%;
-  position: absolute;
+  position: relative;
   top: 15px;
   left: 0;
   max-width: 100%;
@@ -18,7 +18,7 @@ body {
   text-align: justify;
 }
 section {
-  position: absolute;
+  position: relative;
   top: 50px;
   left: 5%;
   width: 90%;
@@ -30,6 +30,7 @@ section {
 content {
   max-width: 100%;
   position: relative;
+  top: 0px;
   left: 10%;
   width: 80%;
   display: flex;
@@ -38,8 +39,9 @@ content {
 }
 
 box {
-  border-radius: 10px;
-  position: absolute;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  position: relative;
   background-color: #7a7af0;
   width: 92.5%;
   padding: 50px;
@@ -87,12 +89,16 @@ box1 {
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
   border: 2px solid #7a7af0;
-  position: absolute;
   background-color: #0c0c0c;
   width: 100%;
   padding: 50px;
   left: 0%;
   bottom: 0%;
+  position: relative;
+  width: 92.5%;
+  padding: 50px;
+  margin-left: 3.5%;
+  margin-right: 3%;
 }
 box2 {
   border-bottom-left-radius: 10px;
@@ -242,4 +248,12 @@ div.gallery img {
     font-size: 25px;
     color: #0c0c0c;
   }
+}
+#preloader {
+  background: #7a7af0;
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  top: 0%;
+  z-index: 100;
 }
