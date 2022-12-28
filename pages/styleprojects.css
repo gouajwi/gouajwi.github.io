@@ -1,0 +1,47 @@
+@font-face {
+  font-family: "Gilroybold";
+  src: url("/font/Gilroy-ExtraBold.otf");
+}
+@font-face {
+  font-family: "Gilroylight";
+  src: url("/font/Gilroy-Light.otf");
+}
+body {
+  width: 100%;
+  position: relative;
+  top: 15px;
+  left: 0;
+  max-width: 100%;
+  font-family: "Gilroybold";
+  margin: 0;
+  background: #0c0c0c;
+  text-align: justify;
+}
+section {
+  position: relative;
+  top: 50px;
+  left: 5%;
+  width: 90%;
+  display: flex;
+  justify-content: baseline;
+  align-items: center;
+}
+@media only screen and (max-width: 715px) {
+  section {
+    z-index: 1;
+    top: 50px;
+    max-width: 100%;
+    left: 0;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+  }
+}
+
+.t2 {
+  text-align: center;
+  font-family: "Gilroylight";
+  font-size: 30px;
+  color: #7a7af0;
+}
