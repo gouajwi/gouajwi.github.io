@@ -1,4 +1,5 @@
 <html lang="en">
+  <!-- Ahbet Louta -->
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -32,26 +33,33 @@
       }
     </style>
   </head>
-<div id="preloader">
-  <div id="idk">
-  <img src="/icon/logo animation.gif" alt=Logo" style="width:
-  100px;height:100px;"></a>
+<body>
+  <!-- Zid Chwaya -->
+  <div class="container">
+    <div class="t1">
+      <h1>HTML SCRIPT</h1>
+    </div>
+    <p>Enter the correct text:</p>
+    <input type="text" id="userInput" placeholder="Type here...">
+    <button onclick="checkText()">Check</button>
+    <div class="result" id="result"></div>
   </div>
-</div>
-  <body>
-    <section>
-      <img src="/icon/title.png" alt=Logo" style="width:
-      280px;height:70px;"></a>
-    </section>
-    <content>
-      <div class="t2">
-        <h1>Experiences we shared</h1>
-      </div>
+<!-- Haw Lahna -->
+  <script>
+    const correctAnswer = "yourfirs1f1ag";
 
-<script>
-     var loader = document.getElementById("preloader");
-    window.addEventListener("load",function(){
-      loader.style.display = "none";
-     })
-</script>
+    function checkText() {
+      const userInput = document.getElementById("userInput").value;
+      const resultDiv = document.getElementById("result");
+
+      if (userInput === correctAnswer) {
+        resultDiv.textContent = "Next Challenge gouajwi.github.io/pages/{answer}.html";
+        resultDiv.style.color = "#fafaf9";
+      } else {
+        resultDiv.textContent = "Try Again";
+        resultDiv.style.color = "#1c1c1c";
+      }
+    }
+  </script>
+</body>
 </html>
