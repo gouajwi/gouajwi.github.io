@@ -1,0 +1,165 @@
+@font-face {
+    font-family: "Gilroybold";
+    src: url("/font/Gilroy-ExtraBold.otf");
+  }
+  @font-face {
+    font-family: "Gilroylight";
+    src: url("/font/Gilroy-Light.otf");
+  }
+  body {
+    width: 70%;
+    position: relative;
+    top: 40px;
+    left: 40px;
+    padding-bottom: 50px;
+    max-width: 100%;
+    font-family: "Gilroylight";
+    margin: 0;
+    background: #0c0c0c;
+    text-align: justify;
+  }
+p
+{
+color: #0c0c0c;
+}
+.group-container {
+    margin-bottom: 20px;
+}
+
+.group-title {
+    font-size: 40px;
+    font-family: "Gilroylight";
+    margin-bottom: 10px;
+    color:  #7a7af0;
+}
+
+.button-list {
+    display: flex;
+    flex-direction: row; /* Arrange buttons horizontally */
+    gap: 20px; /* Space between buttons */
+}
+
+h1
+{
+    color: #7a7af0;
+}
+
+.button-list button {
+    background-color: #7a7af0;
+    border-radius: 10px;
+    color: #0c0c0c;
+    cursor: pointer;
+    display: inline-block;
+    font-family: "Gilroybold";
+    padding: 30px 30px;
+    text-align: center;
+    text-decoration: none;
+    transition: all 250ms;
+    border: 0;
+    font-size: 30px;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+  }
+  
+  .button-list button:hover {
+    box-shadow: rgba(122, 122, 240,.35) 0 -25px 18px -14px inset,rgba(122, 122, 240,.25) 0 1px 2px,rgba(122, 122, 240,.25) 0 2px 4px,rgba(122, 122, 240,.25) 0 4px 8px,rgba(122, 122, 240,.25) 0 8px 16px,rgba(122, 122, 240,.25) 0 16px 32px;
+    transform: scale(1.05);
+  }
+
+.overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    justify-content: center;
+    align-items: center;
+    opacity: 0; /* Start with 0 opacity for fade-in */
+    transition: opacity 0.3s ease-in-out;
+}
+
+.overlay-content {
+    padding: 20px;
+    width: 400px;
+    text-align: center;
+    background-color: #7a7af0;
+    border-radius: 10px;
+    transform: scale(0.9); /* Start slightly smaller for zoom-in effect */
+    transition: transform 0.3s ease-in-out;
+}
+.overlay.active {
+    display: flex; /* Show the overlay */
+    opacity: 1; /* Fully visible */
+}
+
+.overlay.active .overlay-content {
+    transform: scale(1); /* Scale to normal size */
+}
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 24px;
+    color: #0c0c0c;
+    cursor: pointer;
+    transition: color 0.3s ease-in-out;
+}
+.overlay-content input[type="text"] {
+    width: 100%;
+    font-family: "Gilroylight";
+    padding: 12px;
+    font-size: 16px;
+    border: 2px solid #0c0c0c;
+    background-color: #0c0c0c;
+    color: #7a7af0;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    outline: none;
+    transition: border-color 0.3s ease-in-out;
+}
+.overlay-content input[type="text"]:focus {
+    border-color: #ffffff; /* Highlight border on focus */
+}
+.overlay-content button {
+    font-family: "Gilroylight";
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #de907b;
+    color: #0c0c0c;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease; 
+}
+.overlay-content button:hover {
+    background-color: #f6f4f3; /* Darker shade on hover */
+}
+#result-message {
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+.close-btn:hover {
+    color: #f6f4f3; /* Red on hover */
+}
+
+.overlay-content a {
+    font-family: "Gilroybold";
+    font-size: 16px;
+    color: #0c0c0c;
+    text-decoration: none;
+    margin-bottom: 20px;
+    transition: color 0.3s ease-in-out;
+}
+
+.overlay-content a:hover {
+    color: #ffffff; /* Darker shade on hover */
+    text-decoration: underline;
+}
+.hidden {
+    display: none;
+}
