@@ -6,87 +6,279 @@
   font-family: "Gilroylight";
   src: url("/font/Gilroy-Light.otf");
 }
-body {
-  width: 100%;
-  display: flex;
-  position: relative;
-  top: 15px;
-  left: 0;
-  max-width: 100%;
-  font-family: "Gilroybold";
+
+/* Reset some default styles */
+body, html {
   margin: 0;
-  background: #0c0c0c;
-  text-align: justify;
+  padding: 0;
+  font-size: 18px;
+  font-family: 'Gilroylight';
+  height: 100%; /* Ensure the body takes full height */
+  overflow: hidden; /* Prevent scrolling */
+  background-image: var(--background-image); /* Use CSS variable for background image */
+  background-size: cover; /* Ensure the image covers the entire background */
+  background-position: center; /* Center the background image */
+  background-repeat: no-repeat; /* Prevent the image from repeating */
+  transition: background-image 0.5s ease, color 0.5s ease;
+}
+
+/* Define CSS variables for light mode */
+:root {
+  --background-image: url('Photos/light.png'); /* Light mode background */
+  --background-color: #7a7af0;
+  --text-color: #0c0c0c; /* Dark text */
+  --bar-background: #0c0c0c; /* Semi-transparent dark bar background */
+  --bar-text: #7a7af0; /* Light bar text */
+  --button-background: #0c0c0c; /* Semi-transparent dark button background */
+  --button-text: #7a7af0; /* Light button text */
+  --button-hover: #7a7af0; /* Dark button hover */
+  --button-hover-text: #0c0c0c; /* Text color on button hover */
+}
+
+/* Dark mode variables */
+[data-theme="dark"] {
+  --background-image: url('Photos/dark.png'); /* Dark mode background */
+  --background-color: #0c0c0c;
+  --text-color: #7a7af0; /* Light text */
+  --bar-background: #7a7af0; /* Semi-transparent light bar background */
+  --bar-text: #0c0c0c; /* Dark bar text */
+  --button-background: #7a7af0; /* Semi-transparent light button background */
+  --button-text: #0c0c0c; /* Dark button text */
+  --button-hover: #0c0c0c; /* Light button hover */
+  --button-hover-text: #7a7af0; /* Text color on button hover */
+}
+.preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background:#797ff4; /* Fully transparent at the top */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* Ensure it's on top of everything */
+  transition: transform 1s ease-in-out;
+  overflow: hidden; /* Ensure the blur effect doesn't overflow */
+}
+
+.preloader-gif {
+  width: 100px; /* Adjust based on your GIF size */
+  height: auto;
+}
+
+/* Apply variables to the body */
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+/* Floating top bar styling */
+.top-bar {
+  background-color: var(--bar-background);
+  color: var(--bar-text);
+  padding: 5px 5px;
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  width: auto;
+  border-radius: 10px;
+  z-index: 999;
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+/* Floating bottom bar styling */
+.bottom-bar {
+  background-color: var(--bar-background);
+  color: var(--bar-text);
+  padding: 5px 5px;
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  width: auto;
+  border-radius: 10px;
+  z-index: 999;
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+/* Button styling */
+.top-bar a, .bottom-bar a {
+  background-color: var(--button-background);
+  color: var(--button-text);
+  padding: 5px 10px;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Button hover effect */
+.top-bar a:hover, .bottom-bar a:hover {
+  background-color: var(--button-hover);
+  color: var(--button-hover-text);
+}
+
+/* Hamburger Menu Icon */
+.hamburger {
+  display: none; /* Hidden by default */
+  font-size: 24px;
+  cursor: pointer;
+  padding: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  color: var(--bar-text);
+  transition: color 0.5s ease; 
+}
+
+/* Menu Links */
+.menu-links {
+  display: flex;
+  gap: 5px;
+}
+/* Hamburger Menu Overlay */
+.menu-overlay {
+  display: none; /* Hidden by default */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent black background */
+  z-index: 9999; /* Ensure it's above everything */
   justify-content: center;
   align-items: center;
 }
-section {
-  position: relative;
-  top: 50px;
-  left: 5%;
-  width: 90%;
+
+.menu-overlay.active {
+  display: flex; /* Show overlay when active */
+}
+.menu-overlay p {
+  color: var(--background-color) ;
+}
+.menu-overlay .menu-links {
+  background-color: var(--bar-background);
+  border-radius: 10px;
+  padding: 40px;
   display: flex;
-  justify-content: baseline;
-  align-items: center;
-}
-@media only screen and (max-width: 715px) {
-  section {
-    z-index: 1;
-    top: 50px;
-    max-width: 100%;
-    left: 0;
-    width: 100%;
-    justify-content: center;
-    align-items: center;
-    margin: auto;
-  }
-}
-.t1 {
+  flex-direction: column;
+  gap: 10px;
   text-align: center;
-  font-family: "Gilroylight";
-  font-size: 30px;
-  color: #1c1c1c;
-}
-.t2 {
-  text-align: center;
-  font-family: "Gilroylight";
-  font-size: 30px;
-  color: rgb(122, 122, 240);
+  position: relative;
 }
 
-.container {
-  text-align: center;
-  background-color: #7a7af0;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0px 0px 20px rgba(122, 122, 240, 0.7);
-}
-input[type="text"] {
-  font-family: "Gilroylight";
-  padding: 10px;
-  font-size: 16px;
-  border: 2px solid #0c0c0c;
+.menu-overlay .menu-links a {
+  color: var(--bar-text);
+  text-decoration: none;
+  font-size: 22px;
+  padding: 20px 0px;
   border-radius: 5px;
-  margin-bottom: 10px;
-  background-color: #0c0c0c;
-  color: #7a7af0;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
-button {
-  font-family: "Gilroylight";
+
+.menu-overlay .menu-links a:hover {
+  background-color: var(--button-hover);
+  color: var(--button-hover-text);
+}
+
+/* Close Button */
+.close-btn {
+  position: absolute;
+  top:-10px;
+  right: -10px;
+  font-size: 24px;
+  cursor: pointer;
+  color: var(--text-color);
+  background-color: var(--background-color);
+  padding: 10px;
+  padding-left: 15px;
+  padding-right: 15px;
+  border-radius: 5px;
+}
+
+
+/* Responsive Styles */
+@media (max-width: 900px) {
+  .hamburger {
+    display: block; /* Show hamburger icon on small screens */
+  }
+
+  .top-bar .menu-links {
+    display: none; /* Hide menu links by default on small screens */
+  }
+
+  .bottom-bar {
+    display: none; /* Hide bottom bar on small screens */
+  }
+}/* Theme Toggle Rectangle */
+.theme-rectangle {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: var(--button-background);
+  color: var(--button-text);
   padding: 10px 20px;
-  font-size: 16px;
-  background-color: #de907b;
-  color: #0c0c0c;
-  border: none;
   border-radius: 5px;
   cursor: pointer;
-  transition: background-color 0.3s ease; /* Smooth transition */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 10px; /* Space between text and rectangle */
+  transition: background-color 0.5s ease, color 0.5s ease;
 }
-button:hover {
-  background-color: #f6f4f3;
+
+.theme-rectangle p {
+  text-align: left;
+  margin: 0;
+  font-size:18px;
 }
-.result {
-  margin-top: 20px;
-  font-size: 18px;
-  font-weight: bold;
+
+/* Small Rectangle for Theme Toggle */
+.theme-toggle-rectangle {
+  width: 20px;
+  height: 20px;
+  right: 0px;
+  background-color: var(--button-text);
+  border: 2px solid var(--button-background);
+  border-radius: 5px;
+  transition: opacity 0.3s ease; /* Only opacity changes */
+  transition: background-color 0.5s ease, border-color 0.5s ease, opacity 0.5s ease; 
+}
+
+.theme-toggle-rectangle:hover {
+  opacity: 0.7; /* Change opacity on hover */
+}
+.content {
+  padding: 20px;
+  margin-top: 100px;
+  height: calc(100vh - 140px);
+  overflow-y: auto;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .hamburger {
+    display: block; /* Show hamburger icon on small screens */
+  }
+
+  .menu-links {
+    display: none; /* Hide menu links by default on small screens */
+    flex-direction: column;
+    position: absolute;
+    background-color: var(--bar-background);
+    border-radius: 10px;
+    padding: 10px;
+    width: 70%;
+  }
+
+  .menu-links.active {
+    display: flex; /* Show menu links when active */
+  }
+
 }

@@ -1,57 +1,89 @@
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Gouajwi</title>
-    <link rel="stylesheet" href="/pages/styleprojects.css" />
-    <link
-      rel="apple-touch-icon"
-      sizes="180x180"
-      href="/icon/apple-touch-icon.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="32x32"
-      href="/icon/favicon-32x32.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="16x16"
-      href="/icon/favicon-16x16.png"
-    />
-    <link rel="manifest" href="/icon/site.webmanifest" />
-    <link rel="mask-icon" href="/icon/safari-pinned-tab.svg" color="#5bbad5" />
-    <meta name="msapplication-TileColor" content="#6667ab" />
-    <meta name="theme-color" content="#6667ab" />
-    <style>
-      body {
-        background-color: #0c0c0c;
-      }
-    </style>
-  </head>
-<div id="preloader">
-  <div id="idk">
-  <img src="/icon/logo animation.gif" alt=Logo" style="width:
-  100px;height:100px;"></a>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gouajwi</title>
+  <link rel="stylesheet" href="/pages/styleprojects.css" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/icon/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/icon/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/icon/favicon-16x16.png" />
+  <link rel="manifest" href="/icon/site.webmanifest" />
+  <link rel="mask-icon" href="/icon/safari-pinned-tab.svg" color="#5bbad5" />
+  <meta name="msapplication-TileColor" content="#6667ab" />
+  <meta name="theme-color" content="#6667ab" />
+</head>
+<body data-theme="light">
+  <div class="preloader">
+    <img src="\icon\logo animation.gif" alt="Loading..." class="preloader-gif">
   </div>
-</div>
-  <body>
-    <section>
-      <img src="/icon/title.png" alt=Logo" style="width:
-      280px;height:70px;"></a>
-    </section>
-    <content>
-      <div class="t2">
-        <h1>Experiences we shared</h1>
-      </div>
+  <!-- Floating Top Bar -->
+  <div class="top-bar">
+    <div class="hamburger" onclick="toggleMenu()">☰</div>
+    <div class="menu-links">
+      <a href="NetsecChallenge.html">NetSec Challenge</a>
+      <a href="CTF-Writeups.html">Ctf Writeups</a>
+      <a href="Side-Projects.html">Side Projects</a>
+      <a href=CyberTools.html>Cybersecurity Skillset</a>
+    </div>
+  </div>
 
-<script>
-     var loader = document.getElementById("preloader");
-    window.addEventListener("load",function(){
-      loader.style.display = "none";
-     })
-</script>
+  <!-- Floating Bottom Bar -->
+  <div class="bottom-bar">
+    <a href="Design.html">Design Works</a>
+    <a href="page5.html">Design Skillset</a>
+    <a href="page6.html">Contact Me</a>
+  </div>
+
+  <!-- Hamburger Menu Overlay -->
+  <div class="menu-overlay" id="menu-overlay">
+    <div class="menu-links">
+      <span class="close-btn" onclick="toggleMenu()">✕</span> <!-- Close button -->
+      <a href="NetsecChallenge.html">NetSec Challenges</a>
+      <a href="CTF-Writeups.htm">Ctf Writeups</a>
+      <a href=Side-Projects.html>Side Projects</a>
+      <a href=CyberTools.html>Cybersecurity Skillset</a>
+      <p>--------------------</p>
+      <a href="Design.html">Design Works</a>
+      <a href="page5.html">Design Skillset</a>
+      <a href="page6.html">Contact Me</a>
+    </div>
+  </div>
+
+  <!-- Theme Toggle Rectangle -->
+  <div class="theme-rectangle" onclick="toggleTheme()">
+    <p>Hello I'm Aymen and Welcome to my Portfolio<br>Here to see Design or Cybersecurity?</p>
+    <div class="theme-toggle-rectangle"></div> <!-- Small rectangle for theme toggle -->
+  </div>
+
+  <script>
+    // Function to toggle between dark and light mode
+    function toggleTheme() {
+      const body = document.body;
+      const currentTheme = body.getAttribute("data-theme");
+      const newTheme = currentTheme === "light" ? "dark" : "light";
+      body.setAttribute("data-theme", newTheme);
+    }
+
+    // Function to toggle the hamburger menu overlay
+    function toggleMenu() {
+      const overlay = document.getElementById("menu-overlay");
+      overlay.classList.toggle("active");
+    }
+    document.addEventListener("DOMContentLoaded", function() {
+      const preloader = document.querySelector('.preloader');
+      const body = document.body;
+
+      // Assuming the GIF duration is 3 seconds (3000ms)
+      setTimeout(() => {
+        preloader.style.transform = 'translateY(-100%)';
+        preloader.addEventListener('transitionend', () => {
+          preloader.style.display = 'none';
+          body.style.overflow = 'auto'; // Re-enable scrolling after preloader is gone
+        });
+      }, 3000); // Adjust the time based on your GIF duration
+    });
+  </script>
+</body>
 </html>

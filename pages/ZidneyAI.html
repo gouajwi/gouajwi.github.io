@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gouajwi</title>
+  <link rel="stylesheet" href="/pages/zidney.css" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/icon/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/icon/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/icon/favicon-16x16.png" />
+  <link rel="manifest" href="/icon/site.webmanifest" />
+  <link rel="mask-icon" href="/icon/safari-pinned-tab.svg" color="#5bbad5" />
+  <meta name="msapplication-TileColor" content="#6667ab" />
+  <meta name="theme-color" content="#6667ab" />
+</head><body data-theme="light">
+  <!-- Floating Top Bar -->
+  <div class="top-bar-container">
+    <!-- Left segment (logo) -->
+    <div class="left-segment">
+      <div class="logo">Zidney Ai</div>
+    </div>
+    
+    <!-- Center segment (navigation) -->
+    <div class="center-segment">
+      <div class="menu-links">
+        <a href="#home">Home</a>
+        <a href="#features">Features</a>
+        <a href="#Our_Mission">Our Mission</a>
+        <a href="#Team">Our Team</a>
+        <a href="#contact">Contact Us</a>
+        <a href="#Testemonies">Testemonies</a>
+        <a href="#extra" class="mobile-extra">Extra</a>
+      </div>
+    </div>
+    
+    <!-- Right segment (extra + hamburger) -->
+    <div class="right-segment">
+      <a href="#extra" class="extra-tab">Extra</a>
+      <div class="hamburger" onclick="toggleMenu()">☰</div>
+    </div>
+  </div>
+
+  <section id="home" class="hero-container">
+    <div class="parallax-wrapper">
+      <h1 class="hero-title">
+        <span class="parallax-item" data-speed="0.8">Practice Smarter</span>
+        <span class="parallax-item" data-speed="-1">Catch Errors</span>
+        <span class="parallax-item" data-speed="0.4">Ace the Real Test</span>
+      </h1>
+    </div>
+  </section>
+
+<div class="content-box">
+      <section id="features">
+          <h2>A mobile app powered by AI that identifies your <br><span class="rotating-word">Mistakes</span><br> walks you through fixing that and crushing your exams.</h2>
+      </section>
+    </div>
+    <br><br><br><br><br><br><br><br><br><br>
+      <section id="Our_Mission">
+          <h2>Our Mission</h2>
+          <p>Unlocking every learner's potential</p>
+      </section>
+      
+      <section id="Team">
+        <h2 class="section-title">Our Team</h2>
+        <div class="three-columns">
+          <a href="https://www.linkedin.com/in/mohamed-dridi-4a9b25295/" target="_blank" rel="noopener noreferrer" class="column-link">
+            <div class="column">
+              <h3>Mohamed Dridi</h3>
+              <h3>CEO</h3>
+            </div>
+          </a>
+          <a href="https://www.linkedin.com/in/achref-guesmi-74511b287/" target="_blank" rel="noopener noreferrer" class="column-link">
+            <div class="column">
+              <h2>Achref Guesmi</h2>
+              <h3>CFO</h3>
+            </div>
+          </a>
+          <a href="https://www.linkedin.com/in/sabri-mdaini-4b96a6332/" target="_blank" rel="noopener noreferrer" class="column-link">
+            <div class="column">
+              <h2>Sabri Mdaini</h2>
+              <h3>CPO</h3>
+            </div>
+          </a>
+          <a href="https://www.linkedin.com/in/aymen-gouja/" target="_blank" rel="noopener noreferrer" class="column-link">
+            <div class="column">
+              <h2>Aymen Gouja</h2>
+              <h3>CTO</h3>
+            </div>
+          </a>
+        </div>
+      </section>
+      <section id="Testimonies" class="testimonials-scroller">
+        <h2 class="section-title">Testimonials</h2>
+        <div class="scroller-container">
+          <div class="scroller-track">
+            <!-- Testimonial Card 1 -->
+            <div class="testimonial-card">
+              <div class="testimonial-content">
+                <div class="quote-icon">“</div>
+                <p>This product transformed my workflow. The efficiency gains are incredible!</p>
+              </div>
+              <div class="testimonial-author">
+                <img src="https://via.placeholder.com/60" alt="Sarah J.">
+                <div>
+                  <h4>Sarah J.</h4>
+                  <p>Marketing Director</p>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Duplicate cards 2-6 (or more) -->
+            <div class="testimonial-card">...</div>
+            <div class="testimonial-card">...</div>
+            <div class="testimonial-card">...</div>
+            <div class="testimonial-card">...</div>
+            <div class="testimonial-card">...</div>
+            
+            <!-- Duplicate the set for seamless looping -->
+            <div class="testimonial-card">...</div>
+            <div class="testimonial-card">...</div>
+            <div class="testimonial-card">...</div>
+            <div class="testimonial-card">...</div>
+            <div class="testimonial-card">...</div>
+          </div>
+        </div>
+      </section>
+      <section id="contact">
+        <h2>Contact Us</h2>
+        <p>This is the contact section.</p>
+    </section>
+  <script>
+    function toggleMenu() {
+      const menuLinks = document.querySelector('.menu-links');
+      menuLinks.classList.toggle('active');
+    }
+    
+    // Optional: Close mobile menu after clicking a link
+    document.querySelectorAll('.menu-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        const menuLinks = document.querySelector('.menu-links');
+        menuLinks.classList.remove('active');
+      });
+    });
+    document.addEventListener('DOMContentLoaded', function() {
+  const heroContainer = document.querySelector('.hero-container');
+  const parallaxItems = document.querySelectorAll('.parallax-item');
+  const fadeStart = 0; // Start fading after 100px of scrolling
+  const fadeUntil = 300; // Fully faded by 500px
+  
+  function updateEffects() {
+    const scrollPosition = window.pageYOffset;
+    
+    // Update parallax effects
+    parallaxItems.forEach(item => {
+      const speed = parseFloat(item.getAttribute('data-speed'));
+      const xPos = scrollPosition * speed;
+      item.style.transform = `translateX(${xPos}px)`;
+    });
+    
+    // Update opacity based on scroll
+    if (scrollPosition > fadeStart) {
+      const fadeAmount = Math.min((scrollPosition - fadeStart) / (fadeUntil - fadeStart), 1);
+      heroContainer.style.opacity = 1 - fadeAmount * 0.7; // 0.7 means it will bottom out at 0.3 opacity
+      
+      // Optional: Add/remove class for CSS transitions
+      if (fadeAmount > 0.5) {
+        heroContainer.classList.add('scrolled');
+      } else {
+        heroContainer.classList.remove('scrolled');
+      }
+    } else {
+      heroContainer.style.opacity = 1;
+      heroContainer.classList.remove('scrolled');
+    }
+  }
+  
+  // Initial update
+  updateEffects();
+  
+  // Update on scroll
+  window.addEventListener('scroll', updateEffects);
+});
+document.addEventListener('DOMContentLoaded', function() {
+  const synonyms = ["Mistakes", "Gaps", "Weaknesses", "Unknown Knowledge areas"];
+  const wordElement = document.querySelector('.rotating-word');
+  let currentIndex = 0;
+  
+  // Animation settings
+  const animationDuration = 500; // ms
+  const displayDuration = 2000; // ms
+  
+  function animateWord() {
+    // Animate out
+    wordElement.style.transform = 'translateY(20px)';
+    wordElement.style.opacity = '0';
+    
+    setTimeout(() => {
+      // Change word
+      currentIndex = (currentIndex + 1) % synonyms.length;
+      wordElement.textContent = synonyms[currentIndex];
+      
+      // Animate in
+      wordElement.style.transform = 'translateY(-20px)';
+      wordElement.style.opacity = '0';
+      
+      setTimeout(() => {
+        wordElement.style.transform = 'translateY(0)';
+        wordElement.style.opacity = '1';
+      }, 20);
+    }, animationDuration);
+    
+    setTimeout(animateWord, animationDuration * 2 + displayDuration);
+  }
+  
+  // CSS for animations
+  wordElement.style.transition = `all ${animationDuration/1000}s ease`;
+  wordElement.style.display = 'inline-block'; // Required for transforms
+  
+  // Start animation
+  setTimeout(animateWord, displayDuration);
+});
+document.addEventListener('DOMContentLoaded', function() {
+  const track = document.querySelector('.scroller-track');
+  const cards = document.querySelectorAll('.testimonial-card');
+  const leftBtn = document.querySelector('.scroll-btn.left');
+  const rightBtn = document.querySelector('.scroll-btn.right');
+  
+  // Clone cards for seamless looping
+  const firstFiveCards = Array.from(cards).slice(0, 5);
+  firstFiveCards.forEach(card => {
+    const clone = card.cloneNode(true);
+    track.appendChild(clone);
+  });
+  
+  // Manual scroll controls
+  leftBtn.addEventListener('click', () => {
+    track.scrollBy({ left: -350, behavior: 'smooth' });
+  });
+  
+  rightBtn.addEventListener('click', () => {
+    track.scrollBy({ left: 350, behavior: 'smooth' });
+  });
+  
+  // Touch support for mobile
+  let isDown = false;
+  let startX;
+  let scrollLeft;
+  
+  track.addEventListener('mousedown', (e) => {
+    isDown = true;
+    startX = e.pageX - track.offsetLeft;
+    scrollLeft = track.scrollLeft;
+    track.style.cursor = 'grabbing';
+    track.style.animationPlayState = 'paused';
+  });
+  
+  track.addEventListener('mouseleave', () => {
+    isDown = false;
+    track.style.cursor = 'grab';
+  });
+  
+  track.addEventListener('mouseup', () => {
+    isDown = false;
+    track.style.cursor = 'grab';
+    track.style.animationPlayState = 'running';
+  });
+  
+  track.addEventListener('mousemove', (e) => {
+    if(!isDown) return;
+    e.preventDefault();
+    const x = e.pageX - track.offsetLeft;
+    const walk = (x - startX) * 2;
+    track.scrollLeft = scrollLeft - walk;
+  });
+});
+  </script>
+  </body>
