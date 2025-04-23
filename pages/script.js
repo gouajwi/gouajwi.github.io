@@ -24,7 +24,7 @@ const questionGroups = [
     {
         title: "OSINT",
         questions: [
-            { id: 8, title: "9ahwa", question: "Find the Closest coffee shop", answer: "0f8ef3377b30fc47f96b48247f463a726a802f62f3faa03d56403751d2f66c67", description: "What's the price of their LVC tamper", image: "https://imgv3.fotor.com/images/blog-cover-image/a-shadow-of-a-boy-carrying-the-camera-with-red-sky-behind.jpg" },
+            { id: 8, title: "9ahwa", question: "Find the Closest coffee shop", answer: "0f8ef3377b30fc47f96b48247f463a726a802f62f3faa03d56403751d2f66c67", description: "What's the price of their LVC tamper", image: "Photos/Coffee Shop.png" },
             { id: 9, title: "Chkoun l banay", question: "Chkoun l banay", answer: "eb5af8ab99b55cda453f70e6a92c7b327bd8f76f49ff6a81c18ade4c26690057", description: "What year was the architect of this space born in ?", image: "Photos/Space.png" },
             { id: 10, title: "Aliens?", question: "Guess the country", answer: "6f189bf077b6247d094153352f5ae79f011fb02ab137e7f4ec72db6f8db163f6", description: "", image: "Photos/Aliens.png" },
             { id: 11, title: "Taga3 w raga3", question: "Where is he coming from?", answer: "dd76f2ca984500e7fe09a7dd5eae4c64b0e089138831dd417ed4c0baaeffbb5e", description: "My friend sent me this RMT/NTAM and told me that he is landing there"}
