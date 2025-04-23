@@ -31,8 +31,13 @@ const questionGroups = [
         ],
     },
     {
-        title: "Reverse Engineering (Coming Soon)",
-        questions: [],
+        title: "Reverse Engineering",
+        questions: [
+            { id: 12, title: "Overflow", question: "Run the file and crack the code", answer: "bbbb396f4aa15d52e7d5206b5b11f1b0570758b638b7cd3558c7b8c49f3429b0",    links: [
+                { url: "files/overflow", text: "For Linux users" },
+                { url: "files/overflow.exe", text: "For Windows users" }
+            ],}
+        ],
     },
 ];
 
@@ -91,84 +96,132 @@ const loader = document.getElementById("loader");
 let currentQuestion = null;
 
 // Function to open the overlay
+
 function openOverlay(question) {
     currentQuestion = question;
     questionText.textContent = question.question;
-    // Show or hide the image based on whether the question has an image
-    if (question.link) {
-        linkelement.href = question.link;
-        linkelement.textContent = question.linktext; // Set the image source
-        linkelement.classList.remove("hidden"); // Show the image
+    
+    // Handle multiple links
+    const linksContainer = document.getElementById('links-container');
+    linksContainer.innerHTML = '';
+    
+    if (question.links && question.links.length > 0) {
+        question.links.forEach((link, index) => {
+            const linkElement = document.createElement('a');
+            linkElement.href = link.url;
+            linkElement.textContent = link.text || 'Download';
+            linkElement.target = '_blank';
+            linkElement.classList.add('download-link');
+            linksContainer.appendChild(linkElement);
+            
+            if (index < question.links.length - 1) {
+                linksContainer.appendChild(document.createElement('br'));
+            }
+        });
+        linksContainer.classList.remove("hidden");
+    } else if (question.link) {
+        const linkElement = document.createElement('a');
+        linkElement.href = question.link;
+        linkElement.textContent = question.linktext || 'Download';
+        linkElement.target = '_blank';
+        linkElement.classList.add('download-link');
+        linksContainer.appendChild(linkElement);
+        linksContainer.classList.remove("hidden");
     } else {
-        linkelement.classList.add("hidden"); // Hide the image
+        linksContainer.classList.add("hidden");
     }
+    
+    // Handle image
     if (question.image) {
-        loader.style.display = "flex"; // Show the loader
-        overlayImage.style.display = "none"; // Hide the image until it's loaded
-
-        // Set the image source and handle loading
+        loader.style.display = "flex";
+        overlayImage.style.display = "none";
         overlayImage.src = question.image;
         overlayImage.onload = () => {
-            loader.style.display = "none"; // Hide the loader
-            overlayImage.style.display = "block"; // Show the image
+            loader.style.display = "none";
+            overlayImage.style.display = "block";
         };
-
         overlayImage.onerror = () => {
-            loader.style.display = "none"; // Hide the loader if the image fails to load
-            overlayImage.style.display = "none"; // Ensure the image is hidden
+            loader.style.display = "none";
+            overlayImage.style.display = "none";
             console.error("Failed to load image:", question.image);
         };
-     }
-     else {
-        loader.style.display = "none"; // Hide the loader
-        overlayImage.style.display = "none"; // Hide the image
-    }
-    if (question.description) {
-        descriptionElement.textContent = question.description; // Set the image source
-        descriptionElement.classList.remove("hidden"); // Show the image
     } else {
-        descriptionElement.classList.add("hidden"); // Hide the image
+        loader.style.display = "none";
+        overlayImage.style.display = "none";
+    }
+    
+    // Handle description
+    if (question.description) {
+        descriptionElement.textContent = question.description;
+        descriptionElement.classList.remove("hidden");
+    } else {
+        descriptionElement.classList.add("hidden");
     }
 
+    // Reset answer input and result message
     answerInput.value = "";
     resultMessage.textContent = "";
-    overlay.style.display = "flex";   
+    
+    // Show overlay
+    overlay.style.display = "flex";
+    document.body.style.overflow = "hidden"; // Prevent scrolling
+    
+    // Trigger animation
     setTimeout(() => {
         overlay.classList.add("active");
     }, 10);
 }
 
-// Function to close the overlay
+// Fixed closeOverlay function
 function closeOverlay() {
-    // Remove the 'active' class to trigger the fade-out animation
     overlay.classList.remove("active");
-    linkelement.classList.remove("active"); 
-    // Wait for the animation to complete before hiding the overlay
+    
+    // Reset the overlay state completely
     setTimeout(() => {
         overlay.style.display = "none";
-    }, 300); // Match the duration of the CSS transition (0.3s)
+        document.body.style.overflow = "auto"; // Re-enable scrolling
+        
+        // Clear any ongoing image loading
+        overlayImage.src = "";
+        if (overlayImage.onload) overlayImage.onload = null;
+        if (overlayImage.onerror) overlayImage.onerror = null;
+        
+        // Clear current question reference
+        currentQuestion = null;
+    }, 300);
 }
 
+// Ensure close button works properly
 closeBtn.addEventListener("click", closeOverlay);
 
-// Function to hash the answer using SHA-256
-function hashAnswer(answer) {
-    return CryptoJS.SHA256(answer).toString(CryptoJS.enc.Hex);
-}
-
-// Function to check the answer
+// Make sure overlay closes when clicking outside content
+overlay.addEventListener("click", function(e) {
+    if (e.target === overlay) {
+        closeOverlay();
+    }
+});
+// Check answer function - THIS IS THE CRUCIAL FIX
 checkAnswerBtn.addEventListener("click", () => {
+    if (!currentQuestion) {
+        console.error("No current question selected");
+        return;
+    }
+    
     const userAnswer = answerInput.value.trim();
+    if (!userAnswer) {
+        resultMessage.textContent = "Please enter an answer";
+        resultMessage.style.color = "#0c0c0c";
+        return;
+    }
+
     const hashedUserAnswer = hashAnswer(userAnswer);
     const hashedCorrectAnswer = currentQuestion.answer;
 
     if (hashedUserAnswer === hashedCorrectAnswer) {
         resultMessage.textContent = "Correct!";
         resultMessage.style.color = "green";
-        // Mark the question as correct in localStorage
         correctAnswers[currentQuestion.id] = true;
         localStorage.setItem("correctAnswers", JSON.stringify(correctAnswers));
-        // Update the button color
         updateButtonColor(currentQuestion.id);
     } else {
         resultMessage.textContent = "Incorrect!";
@@ -176,21 +229,21 @@ checkAnswerBtn.addEventListener("click", () => {
     }
 });
 
-// Function to update the button color for a specific question
+// Hash function remains the same
+function hashAnswer(answer) {
+    return CryptoJS.SHA256(answer).toString(CryptoJS.enc.Hex);
+}
+
+// Button color update functions remain the same
 function updateButtonColor(questionId) {
     const buttons = document.querySelectorAll(".button-list button");
     buttons.forEach((button) => {
         if (button.getAttribute("data-id") === questionId.toString()) {
-            if (correctAnswers[questionId]) {
-                button.style.backgroundColor = "lightgreen";
-            } else {
-                button.style.backgroundColor = "";
-            }
+            button.style.backgroundColor = correctAnswers[questionId] ? "lightgreen" : "";
         }
     });
 }
 
-// Function to update all button colors based on correct answers
 function updateAllButtonColors() {
     questionGroups.forEach((group) => {
         group.questions.forEach((q) => {
@@ -198,6 +251,5 @@ function updateAllButtonColors() {
         });
     });
 }
-
 // Call this function to update button colors when the page loads
 updateAllButtonColors();

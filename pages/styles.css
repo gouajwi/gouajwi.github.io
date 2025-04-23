@@ -183,7 +183,20 @@ h1
     height: 50px;
     animation: spin 1s linear infinite;
 }
+#links-container {
+    margin: 10px 0;
+}
 
+.download-link {
+    display: inline-block;
+    margin: 5px 0;
+    color: #0066cc;
+    text-decoration: none;
+}
+
+.download-link:hover {
+    text-decoration: underline;
+}
 @keyframes spin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
