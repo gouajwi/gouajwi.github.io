@@ -1,0 +1,278 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NETSEC OnBoarding</title>
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/icon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/icon/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="/icon/favicon-16x16.png"
+    />
+    <link rel="manifest" href="/icon/site.webmanifest" />
+    <link rel="mask-icon" href="/icon/safari-pinned-tab.svg" color="#5bbad5" />
+    <meta name="msapplication-TileColor" content="#6667ab" />
+    <meta name="theme-color" content="#6667ab" />
+    <style>
+      body {
+        background-color: #1c1c1c;
+      }
+    </style>
+  <style>
+    :root {
+      --primary: #6667ab;
+      --background: #1c1c1c;
+      --card-bg: #1e1e2f;
+      --text: #f0f0f0;
+      --muted: #aaa;
+    }
+@font-face {
+    font-family: "Gilroybold";
+    src: url("/font/Gilroy-ExtraBold.otf");
+  }
+  @font-face {
+    font-family: "Gilroylight";
+    src: url("/font/Gilroy-Light.otf");
+  }
+  
+    body {
+      margin: 0;
+    font-family: "Gilroylight";
+      background: var(--background);
+      color: var(--text);
+      display: flex;
+      justify-content: center;
+    }
+
+    .container {
+      max-width: 800px;
+      padding: 2rem;
+      display: none; /* hidden until popup dismissed */
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .logo img {
+      width: 50%;
+      height: auto;
+      border-radius: 10px;
+    }
+    h1 {
+      margin: 0;
+      font-size: 2rem;
+      color: var(--primary);
+    }
+    h3 {
+      margin: 0;
+      font-size: 2rem;
+      color: #1c1c1c;
+    }
+
+    .qr-badge {
+      display: inline-block;
+      margin-top: .5rem;
+      font-size: .9rem;
+      padding: .3rem .6rem;
+      background: var(--primary);
+      color: #fff;
+      border-radius: 6px;
+    }
+
+    .hero .card, .card {
+      background: var(--card-bg);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+    }
+
+    .tag {
+      font-size: .8rem;
+      font-weight: bold;
+      color: #fff;
+      background: var(--primary);
+      display: inline-block;
+      padding: .2rem .6rem;
+      border-radius: 6px;
+      margin-bottom: 1rem;
+    }
+
+    h2.title {
+      margin-top: 0;
+      color: var(--primary);
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .pill {
+      margin: .5rem 0;
+      padding: .6rem 1rem;
+      border-left: 4px solid var(--primary);
+      background: #2a2a3d;
+      border-radius: 6px;
+    }
+
+    ol {
+      padding-left: 1.2rem;
+    }
+        a {
+            color: #6667ab;
+            text-decoration: none;
+        }
+        
+        a:hover {
+            color: #c0392b;
+            text-decoration: underline;
+        }
+    footer {
+      text-align: center;
+      font-size: .85rem;
+      margin-top: 2rem;
+      color: var(--muted);
+    }
+
+    /* Popup styles */
+    .popup-overlay {
+      position: fixed;
+      inset: 0;
+      background:#1c1c1c;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+    }
+
+    .popup {
+      background: #ff0000;
+      padding: 2rem;
+      border-radius: 12px;
+      max-width: 400px;
+      text-align: center;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.6);
+    }
+
+    .popup h2 {
+      margin-top: 0;
+      color: var(--primary);
+    }
+
+    .popup button {
+      margin-top: 1.5rem;
+      padding: .6rem 1.2rem;
+      border: none;
+      border-radius: 8px;
+      background: #1c1c1c;
+      color: #fff;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.2s;
+      font-family: "Gilroylight";
+    }
+
+    .popup button:hover {
+      background: #57589b;
+    }
+    
+    /* Home button styles */
+    .home-button {
+      font-family: "Gilroylight";
+      display: block;
+      margin: 2rem auto;
+      padding: 0.8rem 1.5rem;
+      background: var(--primary);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.3s;
+      text-align: center;
+      max-width: 200px;
+    }
+    
+    .home-button:hover {
+      background: #57589b;
+    }
+  </style>
+</head>
+<body>
+  <!-- Popup overlay -->
+  <div class="popup-overlay" id="popup">
+    <div class="popup">
+      <h3>⚠️ QR Safety First ⚠️</h3>
+      <p>You scanned a QR code — great! But remember:<br>
+         <strong>Never trust random QR codes.</strong><br>
+         They can lead to scams, fake payments, or worse.</p>
+      <button onclick="dismissPopup()">Got it</button>
+    </div>
+  </div>
+
+  <div class="container" id="content">
+    <header>
+      <div class="logo">
+        <img src="Photos/netsec.png" alt="Cybersecurity Club Logo">
+      </div>
+      <span class="qr-badge" title="You arrived here from our Join Us QR — nice!">🚦 You scanned the Join-Us QR</span>
+    </header>
+
+    <section class="hero">
+      <div class="card">
+        <div class="tag">Lesson 1</div>
+        <h2 class="title">Think Before You Scan</h2>
+        <p class="subtitle">We love QR codes — but attackers love them too</p>
+        <ul>
+          <li class="pill">🧷 <strong>Sticker swap:</strong> Malicious stickers placed over legit posters.</li>
+          <li class="pill">🔁 <strong>Redirect tricks:</strong> Short links that jump to phishing pages.</li>
+          <li class="pill">📶 <strong>Auto-config traps:</strong> QR adding Wi-Fi or contacts you didn't ask for.</li>
+          <li class="pill">💸 <strong>Payment scams:</strong> Fake menus / parking meters / donations.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="join" class="card">
+        <div class="tag">Next Step</div>
+        <h2 class="title">Join Us</h2>
+      <p>Welcome! To become a member:</p>
+      <ol>
+        <li>Come to our weekly sessions</li>
+        <li>Join our <a href="https://www.facebook.com/groups/538344615313466">Facebook Group</a> where we post session recaps, course material and ressources.</li>
+        <li>Have fun!</li>
+      </ol>
+      <p style="color:var(--muted)">Tip: we'll never ask for passwords or payments via a QR alone.😉</p>
+    </section>
+    
+    <button class="home-button" onclick="goToHomePage()">Begin Hacking Challenges</button>
+    <br>
+  </div>
+
+  <script>
+    function dismissPopup() {
+      document.getElementById('popup').style.display = 'none';
+      document.getElementById('content').style.display = 'block';
+    }
+    
+    function goToHomePage() {
+      // Replace with your actual home page URL
+      window.location.href = "/pages/NetsecChallenge.html";
+    }
+  </script>
+</body>
+</html>
