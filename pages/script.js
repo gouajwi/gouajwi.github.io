@@ -16,9 +16,14 @@ const questionGroups = [
     {
         title: "Cryptography",
         questions: [
-            { id: 5, title: "Weld Rouma", question: "What is he saying?", answer: "ed4b4654c17fbedbedca2258a0efcc62811e63dd16a696e0db181c5aa066964d", description: "'atlaneajya eo pda pawydan kb whh pdejco.'" },
-            { id: 6, title: "Jwebeti", question: "Can you figure out what's for dinner?", answer: "afedad05a0da7b1f0705c47f2929320203bf91d7607d12e65130ee8c8a217e8e", linktext: "Download the Text" ,link:'files/Jwebi.txt'},
-            { id: 7, title: "RSA", question: "RSA", answer: "c3ea99f86b2f8a74ef4145bb245155ff5f91cd856f287523481c15a1959d5fd1", description: "Encrypt the number 12 using the exponent e=65537 and the primes p=17 and q=23. What number do you get as the ciphertext?" },
+            {id:20, title: "Secret Ingredient", question:"What is the secret for the smell?", answer:"9206fe5a9ce6c64f04a6a55777db32e745db7c690986cc52e0f5e47feb5b0a85",description:"Rypqkjqwu yi dej q cuqb, rkj q secckdqb uludj—q whyc wqjxuhydw sudjuhut qhekdt q ixqhut, fkdwudj rhejx. Jxu bygkyt yjiubv yi cqtu vhec hejjud veet ishqfi tybkjut yd mqjuh.Jxu uludj'i tuvydydw vuqjkhu yi yji eluhfemuhydw, vyixo icubb, mxysx secui vhec q iydwbu auo ydwhutyudj: wqhdyj. Kdbyau ejxuh luhiyedi, xuhu wqhdyj yi q fqiju ev vuhcudjut esjefki, qdt q icqbb qcekdj yi ijyhhut ydje jxu fej. Yji fejudj, rhydo uiiudsu ydijqdjbo tecydqjui jxu qyh, cqhaydw jxu jhku ijqhj ev jxu rypqkjqwu."
+            },
+            {id:21, title: "Singing", question:"What's the first name of the singer?", answer:"f69be6015b419c5fe8de1f64c9a1f952624e5b68316797f9b6f22b133bd3844e", linktext: "Download the Text" ,link:'files/ghne.txt'
+            },
+            { id: 22, title: "Layn l5asara", question: "Decrypt this RSA Cipher", answer: "ec236d5876b5dd4a1e19ce5a57dcb0789d4c3b0dda46cef726875f920b20903b", description: "Why is everyone so obsessed with multiplying two primes for RSA. Why not just use one?" , linktext: "Download the Text" ,link:'files/Rsa_One_Prime.txt'},
+            { id: 23, title: "Lazreg", question: "What is the book name?", answer: "ab906be12ca6d9f28ad5687f2b0ab8bc5e4535060485ee9c6eec3580777424ee",linktext: "Download the Text" ,link:'files/Viginere.txt'},
+            { id: 24, title: "Vroom Vroom", question: "Find the original from the hash", answer: "a6e892240e2300cac96dfbfe36c0f07aa414a5f9fc40bea215e50f9d625a675d", description: "You will have to find the hash first (hint: the word is 5 character long (alphanumeric and lowercase))" },
+            { id: 25, title: "Murica", question: "Who are we talking about", answer: "153b20bbbd687216aa6ee4adf712c31934dbee030705f0b58905102b0430b9d2", description: "The answer format is 'firstname_middlename_lastname'" , linktext: "Download the Audio" ,link:'files/In_the_neck.wav'},
         ],
     },
     {
