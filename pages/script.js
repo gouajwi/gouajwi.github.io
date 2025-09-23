@@ -2,8 +2,12 @@ const questionGroups = [
     {
         title: "Steganography",
         questions: [
-            { id: 1, title: "Hidden In PlainSight", question: "Hidden In PlainSight", answer: "8915806ec7874437badd97696141cc7aeb5c6192fb809cbfa9403e92f407d332", description: "Plainsight‌‌‌‌‍‌﻿‌‌‌‌‌‍‬‍﻿‌‌‌‌‍‬‬‍‌‌‌‌‍﻿‍‌‌‌‌‌‍‬‬‌‌‌‌‌‍‬‌‍"},
-            { id: 2, title: "Taswira", question: "Find the Key", answer: "e2f28132513fef604f19eb7c8caaa3c134b8543a130facf6064b98e05be9f081", description: "Who is the artist behind this image?", image: "Photos/Taswira.jpg" },
+            { id: 31, title: "Focus", question: "Find the Flag", answer: "b11548cc5ed7905e2f1de337a42888ba2daaea449c555b8f2c4edbc53a9099ff", description: "Think Peter Think​‌​​‌‌‌​​‌​​​‌​‌​‌​‌​‌​​​‌​‌​​‌‌​‌​​​‌​‌​‌​​​​‌‌​‌‌‌‌​‌‌​​‌‌​​​​​‌‌​‌‌​‌​‌‌​‌‌‌​​​‌‌​​​‌​‌​‌‌‌‌‌​‌​​‌‌​‌​‌‌​​​​‌​‌‌​‌‌‌​​‌‌‌‌‌​‌‍ (https://stegzero.com/)"},
+            { id: 32, title: "Data of the Data", question: "Find the Flag", answer: "c95f79f492636bd75f18644ca2cb53c9ecd5950ba0f7ad941e2c329cf9be102e", description: "", image: "Photos/MchelBureau_min.jpg" ,linktext: "Download the Image" ,link:'Photos/MchelBureau_min.jpg' },
+            { id: 33, title: "Titanic", question: "Find the Flag", answer: "152116bfabcaf86f916c6708277609bcb4376b36cb1b925c80f5d28c1ca361a3", description: "Least Significant bit", image: "Photos/Titanic.png"  ,linktext: "Download the Image" ,link:'Photos/Titanic.png' },
+            { id: 34, title: "Winou Jaw", question: "Find the Flag", answer: "b89045ca25c0addf1669f61a09ac562d0774ab81da32c7b0eef0aa6e6e81f64d", description: "Search Through the Planes of colors", image: "Photos/7affeli.png"  ,linktext: "Download the Image" ,link:'Photos/7affeli.png' },
+            { id: 35, title: "Besbess", question: "Find the Flag", answer: "cfe264952ace6753c8101284f8612101228a9e8c1abb54142b62b6f7c45f0d03", description: "No Password Required", image: "Photos/besbessteg.jpg" ,linktext: "Download the Image" ,link:'Photos/besbessteg.jpg' },
+            { id: 36, title: "PolyGlot", question: "Challenge Not Availble", answer: "c95f79f492636bd75f18644ca2cb53c9ecd5950ba0f7ad941e2c329cf9be102e", description: "In Prgress", image: "Photos/s.jpg" ,linktext: "Download the File" ,link:'Photos/s.jpg' },
         ],
     },
     {
