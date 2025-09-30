@@ -33,10 +33,11 @@ const questionGroups = [
     {
         title: "OSINT",
         questions: [
-            { id: 8, title: "9ahwa", question: "Find the Closest coffee shop", answer: "0f8ef3377b30fc47f96b48247f463a726a802f62f3faa03d56403751d2f66c67", description: "What's the price of their LVC tamper", image: "Photos/Coffee Shop.png" },
-            { id: 9, title: "Chkoun l banay", question: "Chkoun l banay", answer: "eb5af8ab99b55cda453f70e6a92c7b327bd8f76f49ff6a81c18ade4c26690057", description: "What year was the architect of this space born in ?", image: "Photos/Space.png" },
-            { id: 10, title: "Aliens?", question: "Guess the country", answer: "6f189bf077b6247d094153352f5ae79f011fb02ab137e7f4ec72db6f8db163f6", description: "", image: "Photos/Aliens.png" },
-            { id: 11, title: "Taga3 w raga3", question: "Where is he coming from?", answer: "dd76f2ca984500e7fe09a7dd5eae4c64b0e089138831dd417ed4c0baaeffbb5e", description: "My friend sent me this RMT/NTAM and told me that he is landing there"}
+            { id: 40, title: "Archive", question: "Find the flag", answer: "3d5bd53ec783519dc9188b5acdae7780226e8147cae687d80a367a8e37142bc3", description: "The page above has the flag",linktext: "Link to page" ,link:'archive.html'},
+            { id: 41, title: "Ba77ar", question: "Find the boat", answer: "849abd5fdb2c5185742e0dc4c91346c561237d605d82da34a4e1901ba19fd983", description: "There is a boat expected to arrive to TNTUN the 06.10 (NETSEC{MMSI_FULL_NAME})"},
+            { id: 42, title: "51 State", question: "Name the building", answer: "a8b8ac266c64334630d94bf9a6ab8f7856b0ff4f89552ea0453ed81a4350d855", description: "Name the building from which this photo was taken (NETSEC{Building_Number_Street_Name})", image: "Photos/SkyScrapper.jpeg" },
+            { id: 43, title: "Lamet La7beb", question: "Who's the guy in the middle", answer: "c14ac7cb7813f0bbee33f5941ccdb66b7bd5ea1082c4efe904612d60a62aac28", description: "Name the guy typing on the computer (NETSEC{Firstname_Middlename_Lastname})", image: "Photos/BIn_Laden.jpg" },
+            { id: 44, title: "Dork", question: "Expose the weakeness of rnu.tn", answer: "deabf3204936f39cfd75ea6a3ff35c4b2ec256250ee90b311d09d68a5c186667", description: "Find the cin of the first person on the list of 'etudiant de mastere de recherche iot et tratement de donnees' of EPT 21-22 (NETSEC{cin})"},
         ],
     },
     {
