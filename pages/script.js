@@ -46,6 +46,18 @@ const questionGroups = [
             { id: 12, title: "Overflow", question: "Run the file and crack the code", answer: "bbbb396f4aa15d52e7d5206b5b11f1b0570758b638b7cd3558c7b8c49f3429b0",    links: [
                 { url: "files/overflow", text: "For Linux users" },
                 { url: "files/overflow.exe", text: "For Windows users" }
+            ],},
+            { id: 13, title: "Xor", question: "Launch the instance and crack the code", answer: "e1605057795899aaaa6859b438bd6da95d865c4e3c560781b81c4ec822abce3b", description: "nc {SERVER_HOST} 13373" ,   links: [
+                { url: "files/Xor.py", text: "Python File" },
+            ],},
+            { id: 14, title: "Refrain", question: "Launch the instance and crack the code", answer: "ed567be7f433a807deef550033cde8721fa9d63cf05eedd32b1b0c214e768b10", description: "nc {SERVER_HOST} 13372" ,   links: [
+                { url: "files/lyrics-reader.py", text: "Python File" },
+            ],},
+            { id: 15, title: "Zidha", question: "Launch the instance and crack the code", answer: "6aac07456b8329407ec99b0621c6d25506dfcb550f3bc0102f4bdcde263281e7", description: "nc {SERVER_HOST} 13374" ,   links: [
+                { url: "files/zid_w_na9es.py", text: "Python File" },
+            ],},
+            { id: 16, title: "Beginsemble", question: "Launch the instance and crack the code", answer: "152c3a468774fb216af219bfd5dce9658e023b52e57312c33467c3f05e61bfb8", description: "nc {SERVER_HOST} 13375" ,   links: [
+                { url: "files/ABCD.asm", text: "Assembly File" },
             ],}
         ],
     },
